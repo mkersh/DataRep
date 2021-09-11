@@ -377,7 +377,7 @@
   (reset! MAX-PER-ACCOUNT-SCEDULE-UPDATE val))
 
 (defn trigger-schedule-update [loan-obj]
-  (when (and @UPDATE-LOAN-ACC-SCHEDULE-PER-ACCOUNT (> 0 @MAX-PER-ACCOUNT-SCEDULE-UPDATE))
+  (when (and @UPDATE-LOAN-ACC-SCHEDULE-PER-ACCOUNT (> @MAX-PER-ACCOUNT-SCEDULE-UPDATE 0))
     (reset-per-account-schedule-updates (dec @MAX-PER-ACCOUNT-SCEDULE-UPDATE))
     (prn "Sync schedule for " (get loan-obj "id"))
     (get-all-objects :schedule_install2 {:accid (get loan-obj "id")})))
