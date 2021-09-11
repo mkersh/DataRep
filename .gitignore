@@ -15,3 +15,4 @@ pom.xml.asc
 src/http/ENV.clj
 .calva/output-window/output.calva-repl
 MAMBU-DWH
+.lsp/sqlite.db
