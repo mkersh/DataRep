@@ -1,5 +1,6 @@
 (ns repl_start
-  (:require [clojure.string :as str]))
+  (:require [clojure.string :as str]
+            [clojure.pprint :as pp]))
 
 (defn name-to-string [varname]
   (let [namestr (name varname)
@@ -11,3 +12,17 @@
   (load (name-to-string name))
   (in-ns name)
   (use 'tools.repl-navigate))
+
+;; Print the classpath
+(defn printClassPath []
+  (println "JAVA CLASSPATH - Has the following configuration:")
+  (println "===============")
+  (pp/pprint (sort (str/split
+                    (System/getProperty "java.class.path")
+                    #":"))))
+;; To test
+(comment
+  (printClassPath)
+;;
+)
+
