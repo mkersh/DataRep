@@ -631,7 +631,9 @@
 
 (comment  ;; Testing sandbox area
 
-  (SETENV "env5") ;; set to use https://markkershaw.mambu.com
+  (SETENV "env5") ;; set to use europeshowcase.sandbox.mambu.com
+  (SETENV "env2") ;; set to use markkershaw.mambu.com
+  
   (setup-debug false) ;; Turn off debug messages
   (setup-debug true) ;; Turn on debug messages
 
