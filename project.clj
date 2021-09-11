@@ -1,6 +1,6 @@
 (defproject clojure-notebook "0.0.1"
-  :description "My clozure tests"
-  :url "https://github.com/mkersh/JupyterNotebooks/tree/master/ClojureTests"
+  :description "Mambu DataRep POC"
+  :url "https://github.com/mkersh/DataRep"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :min-lein-version "2.0.0"
