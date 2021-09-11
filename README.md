@@ -1,2 +1,2 @@
 # DataRep
-Mambu Data Replication POC
+Mambu Data Replication POC in Clojure
