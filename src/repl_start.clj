@@ -1,6 +1,8 @@
 (ns repl_start
   (:require [clojure.string :as str]
-            [clojure.pprint :as pp]))
+            [clojure.pprint :as pp]
+            [clojure.java.shell :as sh]
+            ))
 
 (defn name-to-string [varname]
   (let [namestr (name varname)
@@ -23,6 +25,7 @@
 ;; To test
 (comment
   (printClassPath)
+  (sh/sh "ls" "-aul" "src/http")
 ;;
 )
 
