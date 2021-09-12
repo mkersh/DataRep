@@ -45,7 +45,7 @@
 (comment
   (printClassPath)
   ;; I had an issue with some "ln -s" files in my work directory. This shell command allowed me
-  ;; to see insde the docker containers /app directory and allowed me to see the problem
+  ;; to see inside the docker containers /app directory and allowed me to see the problem
   ;; I needed to use a hardlink rather than a softlink to get things working
   (sh/sh "ls" "-aul" "src/http") 
   (datarep/terminal-ui)
