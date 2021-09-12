@@ -634,11 +634,14 @@
 
 (defn terminal-ui []
     (loop []
-        (prn "0 - Resync (quick), 1 - Resync (full) q - quit program")
+        (prn "0 - Resync (quick), 1 - Resync (full), q - quit program")
         (let [option (read-line)]
           (condp = option
             "0" (resync-dwh false)
-            "1" (resync-dwh true))
+            "1" (resync-dwh true)
+            "q" (println "Goodbye!")
+            (println (str "ERROR: Unknown option " option " - please try again!!"))
+            )
           (if (not= option "q")
             ;; Recurse into loop above again
             (recur)
