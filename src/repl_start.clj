@@ -1,4 +1,4 @@
-;;; This is my startup namespace for the DataRep App.
+;;; This is my startup namespace for the DataRep App. 
 ;;; lein run - Will start running the -main function below
 ;;;
 ;;; I run the App within a docker container using the following bash alias:
