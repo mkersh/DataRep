@@ -629,11 +629,28 @@
   (api/setenv env)
   (dwh/set-dwh-root-dir))
 
+;; setup the default env to use 
+(SETENV "env5")
+
+(defn terminal-ui []
+    (loop []
+        (prn "0 - Resync (quick), 1 - Resync (full) q - quit program")
+        (let [option (read-line)]
+          (condp = option
+            "0" (resync-dwh false)
+            "1" (resync-dwh true))
+          (if (not= option "q")
+            ;; Recurse into loop above again
+            (recur)
+            nil))))
+
 (comment  ;; Testing sandbox area
+
+  (terminal-ui)
 
   (SETENV "env5") ;; set to use europeshowcase.sandbox.mambu.com
   (SETENV "env2") ;; set to use markkershaw.mambu.com
-  
+
   (setup-debug false) ;; Turn off debug messages
   (setup-debug true) ;; Turn on debug messages
 
