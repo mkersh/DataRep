@@ -642,7 +642,7 @@
 
 ;; Simple UI for a stdout Terminal
 ;; Runs indefinitely until you input a q (for quit)
-;; Other commands in recognises are:
+;; Other commands it recognises are:
 ;;    0 - Run (resync-dwh false) : Quick Resync
 ;;    1 - Run (resync-dwh ture) : Full Resync
 ;;    q - Quit the App
