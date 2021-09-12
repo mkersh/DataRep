@@ -634,7 +634,7 @@
 
 (defn try-setupenv [option]
   (try (SETENV option)
-       (println "Mambu Tenant changed to: " option)
+       (println "Mambu Tenant changed to: " (api/get-env-domain))
        (catch Exception _
          (println (str "ERROR: Unknown option " option " - please try again!!")))))
 
