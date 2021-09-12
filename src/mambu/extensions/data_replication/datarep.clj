@@ -634,8 +634,9 @@
 
 (defn try-setupenv [option]
   (try (SETENV option)
-       (catch Exception _ 
-       (println (str "ERROR: Unknown option " option " - please try again!!")))))
+       (prn "Mambu Tenant changed to: " option)
+       (catch Exception _
+         (println (str "ERROR: Unknown option " option " - please try again!!")))))
 
 
 (defn terminal-ui []
