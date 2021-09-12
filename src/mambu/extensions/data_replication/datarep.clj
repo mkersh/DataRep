@@ -632,10 +632,12 @@
 ;; setup the default env to use 
 (SETENV "env5")
 
+;; Try and change the Mambu tenant. See (terminal-ui) below for how it is called.
 (defn try-setupenv [option]
   (try (SETENV option)
        (println "Mambu Tenant changed to: " (api/get-env-domain))
        (catch Exception _
+         ;; The tenant identified or the option entered was invalid
          (println (str "ERROR: Unknown option " option " - please try again!!")))))
 
 ;; Simple UI for a stdout Terminal
