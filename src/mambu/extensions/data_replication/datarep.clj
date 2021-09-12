@@ -634,14 +634,14 @@
 
 (defn try-setupenv [option]
   (try (SETENV option)
-       (prn "Mambu Tenant changed to: " option)
+       (println "Mambu Tenant changed to: " option)
        (catch Exception _
          (println (str "ERROR: Unknown option " option " - please try again!!")))))
 
 
 (defn terminal-ui []
     (loop []
-        (prn "0 - Resync (quick), 1 - Resync (full), q - quit program, <ENVID> - To change the Mambu tenant")
+        (println "0 - Resync (quick), 1 - Resync (full), q - quit program, <ENVID> - To change the Mambu tenant")
         (let [option (read-line)]
           (condp = option
             "0" (resync-dwh false)
