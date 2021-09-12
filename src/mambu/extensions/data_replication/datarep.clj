@@ -638,7 +638,15 @@
        (catch Exception _
          (println (str "ERROR: Unknown option " option " - please try again!!")))))
 
-
+;; Simple UI for a stdout Terminal
+;; Runs indefinitely until you input a q (for quit)
+;; Other commands in recognises are:
+;;    0 - Run (resync-dwh false) : Quick Resync
+;;    1 - Run (resync-dwh ture) : Full Resync
+;;    q - Quit the App
+;;   <envid> - The ENVID to change to. Should be an ID from your http/ENV.clj file
+;;
+;; NOTE: (terminal-ui) is run when the App is started using lein run. See repl_start.clj for details.
 (defn terminal-ui []
     (loop []
         (println "0 - Resync (quick), 1 - Resync (full), q - quit program, <ENVID> - To change the Mambu tenant")
