@@ -632,15 +632,21 @@
 ;; setup the default env to use 
 (SETENV "env5")
 
+(defn try-setupenv [option]
+  (try (SETENV option)
+       (catch Exception _ 
+       (println (str "ERROR: Unknown option " option " - please try again!!")))))
+
+
 (defn terminal-ui []
     (loop []
-        (prn "0 - Resync (quick), 1 - Resync (full), q - quit program")
+        (prn "0 - Resync (quick), 1 - Resync (full), q - quit program, <ENVID> - To change the Mambu tenant")
         (let [option (read-line)]
           (condp = option
             "0" (resync-dwh false)
             "1" (resync-dwh true)
             "q" (println "Goodbye!")
-            (println (str "ERROR: Unknown option " option " - please try again!!"))
+            (try-setupenv option)
             )
           (if (not= option "q")
             ;; Recurse into loop above again
