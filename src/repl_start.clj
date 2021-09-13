@@ -39,6 +39,7 @@
 ;; is the startup function for us.
 ;;
 (defn -main []
+  ;; Start a simple terminal based UI
   (datarep/terminal-ui))
 
 ;; To test

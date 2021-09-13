@@ -1,7 +1,10 @@
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 ## Understanding the Code
 ### Main file: [datarep.clj](https://github.com/mkersh/DataRep/blob/main/src/mambu/extensions/data_replication/datarep.clj) 
 Key functions:
 * ([resync-dwh](https://github.com/mkersh/DataRep/blob/5a18f4152f55fc4fc86b065466aa13d1df36057a/src/mambu/extensions/data_replication/datarep.clj#L587) ...) - Replicates data from a Mambu tenant to a local folder/file based data-lake/DWH
+* [(terminal-ui)](https://github.com/mkersh/DataRep/blob/557ef030d5828476488c913ce4a9c1df6725696b/src/mambu/extensions/data_replication/datarep.clj#L652) - Simple UI for a stdout Terminal
+   * Startup function when running the App. Called from [repl_start.clj::-main](https://github.com/mkersh/DataRep/blob/557ef030d5828476488c913ce4a9c1df6725696b/src/repl_start.clj#L41)
 
 ### File [file_dwh.clj](https://github.com/mkersh/DataRep/blob/main/src/mambu/extensions/data_replication/file_dwh.clj)
 * Implements a folder/file based DWH
