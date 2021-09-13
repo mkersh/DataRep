@@ -1,4 +1,3 @@
-<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 ## Understanding the Code
 ### Main file: [datarep.clj](https://github.com/mkersh/DataRep/blob/main/src/mambu/extensions/data_replication/datarep.clj) 
 Key functions:
