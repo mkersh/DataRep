@@ -629,9 +629,6 @@
   (api/setenv env)
   (dwh/set-dwh-root-dir))
 
-;; setup the default env to use 
-(SETENV "env5")
-
 ;; Try and change the Mambu tenant. See (terminal-ui) below for how it is called.
 (defn try-setupenv [option]
   (try (SETENV option)
@@ -639,6 +636,10 @@
        (catch Exception _
          ;; The tenant identified or the option entered was invalid
          (println (str "ERROR: Unknown option " option " - please try again!!")))))
+
+;; setup the default env to use
+;; Not everyone will have this env defined so use try-setupenv
+(try-setupenv "env5")
 
 ;; Simple UI for a stdout Terminal
 ;; Runs indefinitely until you input a q (for quit)
