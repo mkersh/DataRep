@@ -20,4 +20,4 @@ Key functions:
     * Copy this into your own version of http.ENV
     * This is where you define the Mambu tenants and their logon details
     * See [(SETENV env)](https://github.com/mkersh/DataRep/blob/3ef5a6d52a6c4960d87e59f29d3bbab0fa6703b8/src/mambu/extensions/data_replication/datarep.clj#L634) for how the environment to use is setup
-    * API calls refer to the env like this: ["{{*env*}}/clients"](https://github.com/mkersh/DataRep/blob/3ef5a6d52a6c4960d87e59f29d3bbab0fa6703b8/src/mambu/extensions/data_replication/datarep.clj#L223)
+    * API calls refer to the env like this: ["{{\*env\*}}/clients"](https://github.com/mkersh/DataRep/blob/3ef5a6d52a6c4960d87e59f29d3bbab0fa6703b8/src/mambu/extensions/data_replication/datarep.clj#L223)
