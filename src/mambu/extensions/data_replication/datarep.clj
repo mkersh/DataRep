@@ -647,14 +647,16 @@
    (prn "Sync Users")
    (get-all-objects :user {:page-size 100})))  
 
-(defn SETENV [env]
+(defn SETENV 
+([env] (SETENV env false))
+([env store?]
   (api/setenv env)
   (dwh/set-dwh-root-dir)
-  (save-preferences {:previous-env env}))
+  (when store? (save-preferences {:previous-env env}))))
 
 ;; Try and change the Mambu tenant. See (terminal-ui) below for how it is called.
 (defn try-setupenv [option]
-  (try (SETENV option)
+  (try (SETENV option true)
        (println "Mambu Tenant changed to: " (api/get-env-domain))
        (catch Exception _
          ;; The tenant identified or the option entered was invalid
@@ -662,7 +664,7 @@
 
 ;; setup the default env to use
 ;; Not everyone will have this env defined so use try-setupenv
-(try-setupenv "env5")
+(SETENV "env5")
 
 ;; Simple UI for a stdout Terminal
 ;; Runs indefinitely until you input a q (for quit)
