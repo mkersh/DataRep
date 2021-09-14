@@ -180,6 +180,28 @@
 
 ;;; END --------------------------------------------------------------
 
+;;; ------------------------------------------------------------------
+;;; Functions for saving and loading App preferences
+;;; These will be stored in MAMBU-DWH/.settings file
+;;;
+;;; The key setting to save is the users Mambu tenant that were previously 
+;;; working on. Need to remember this across multiple sessions
+
+(declare try-setupenv) ;; forward ref to SETENV
+
+;; (:previous-env obj) should contain the previous ENV
+(defn save-preferences [obj]
+  (dwh/save-preferences obj))
+
+(defn load-preferences []
+  (let [prefs-obj (dwh/load-preferences)
+        prev-env (:previous-env prefs-obj)
+        ;;_ (prn "load-preferences:" prev-env)
+        ]
+    (if prev-env
+      (try-setupenv prev-env)
+      (println "WARNING: No Mambu Tenent currently selected"))))
+
 
 (defn save-object [obj context]
   (debug "In save-object:")
@@ -627,7 +649,8 @@
 
 (defn SETENV [env]
   (api/setenv env)
-  (dwh/set-dwh-root-dir))
+  (dwh/set-dwh-root-dir)
+  (save-preferences {:previous-env env}))
 
 ;; Try and change the Mambu tenant. See (terminal-ui) below for how it is called.
 (defn try-setupenv [option]
@@ -651,19 +674,19 @@
 ;;
 ;; NOTE: (terminal-ui) is run when the App is started using lein run. See repl_start.clj for details.
 (defn terminal-ui []
-    (loop []
-        (println "0 - Resync (quick), 1 - Resync (full), q - quit program, <ENVID> - To change the Mambu tenant")
-        (let [option (read-line)]
-          (condp = option
-            "0" (resync-dwh false)
-            "1" (resync-dwh true)
-            "q" (println "Goodbye!")
-            (try-setupenv option)
-            )
-          (if (not= option "q")
+  (load-preferences)
+  (loop []
+    (println "0 - Resync (quick), 1 - Resync (full), q - quit program, <ENVID> - To change the Mambu tenant")
+    (let [option (read-line)]
+      (condp = option
+        "0" (resync-dwh false)
+        "1" (resync-dwh true)
+        "q" (println "Goodbye!")
+        (try-setupenv option))
+      (if (not= option "q")
             ;; Recurse into loop above again
-            (recur)
-            nil))))
+        (recur)
+        nil))))
 
 (comment  ;; Testing sandbox area
 
