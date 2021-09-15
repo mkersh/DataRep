@@ -13,7 +13,7 @@
 ;;; input and output to the host terminal that the docker is run from. Which is what we need.
 ;;;
 ;;; To start a REPL up for the DataRep that you can then attach to from your favourite Clojure Editor/IDE:
-;;;
+;;; 
 ;;; alias clojure-docker-datarep='cd /Users/mkersh/clojure/tools/DataRep;docker run -p 5007:5007 -v $(pwd):/app -w /app mkersh65/clojure:version2 lein repl :headless :host 0.0.0.0 :port 5007&'
 ;;; NOTE: You can then attach to the REPL using localhost:5007 from your editor
 

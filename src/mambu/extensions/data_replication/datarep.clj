@@ -306,7 +306,7 @@
 
 
 (defn get-loan-account [context]
-  (let [api-call (fn [context0]
+  (let [api-call (fn [_]
                      {:url (str "{{*env*}}/loans/" (:accid context))
                       :method api/GET
                       :query-params {"detailsLevel" "FULL"}
@@ -613,38 +613,38 @@
    ;; NOTE: We want to do this when full-sync-installments=false
    (set-update-loan-acc-schedule-per-account (not full-sync-installments))
    (reset-per-account-schedule-updates 5) ;; Set a maximum number of per account schedule updates
-   (prn "Sync Branches")
+   (println "Sync Branches")
    (get-all-objects :branch {:page-size 100})
-   (prn "Sync Centres")
+   (println "Sync Centres")
    (get-all-objects :centre {:page-size 100})
-   (prn "Sync Clients")
+   (println "Sync Clients")
    (get-all-objects :client {:page-size 100})
-   (prn "Sync Groups")
+   (println "Sync Groups")
    (get-all-objects :group {:page-size 100})
-   (prn "Sync Deposit Accounts")
+   (println "Sync Deposit Accounts")
    (get-all-objects :deposit_account {:page-size 100})
-   (prn "Sync Loan Accounts")
+   (println "Sync Loan Accounts")
    (get-all-objects :loan_account {:page-size 100})
-   (prn "Sync Deposit Transactions")
+   (println "Sync Deposit Transactions")
    (get-all-objects :deposit_trans {:page-size 100})
-   (prn "Sync Loan Transactions")
+   (println "Sync Loan Transactions")
    (get-all-objects :loan_trans {:page-size 100})
-   (prn "Sync Journal Entries")
+   (println "Sync Journal Entries")
    (get-all-objects :gl_journal_entry {:page-size 100})
-   (prn "Sync GL Accounts")
+   (println "Sync GL Accounts")
    (get-all-objects :gl_account {:gl-type "ASSET" :page-size 100})
    (get-all-objects :gl_account {:gl-type "LIABILITY" :page-size 100})
    (get-all-objects :gl_account {:gl-type "EQUITY" :page-size 100})
    (get-all-objects :gl_account {:gl-type "INCOME" :page-size 100})
    (get-all-objects :gl_account {:gl-type "EXPENSE" :page-size 100})
    (when full-sync-installments
-     (prn "Sync Installments (Full)")
+     (println "Sync Installments (Full)")
      (get-all-objects :schedule_install {:page-size 1000}))
-   (prn "Sync Loan Products")
+   (println "Sync Loan Products")
    (get-all-objects :loan_product {:page-size 100})
-   (prn "Sync Deposit Products")
+   (println "Sync Deposit Products")
    (get-all-objects :deposit_product {:page-size 100})
-   (prn "Sync Users")
+   (println "Sync Users")
    (get-all-objects :user {:page-size 100})))  
 
 (defn SETENV 
