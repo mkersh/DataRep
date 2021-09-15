@@ -664,7 +664,7 @@
 
 ;; setup the default env to use
 ;; Not everyone will have this env defined so use try-setupenv
-(SETENV "env5")
+(try-setupenv "env5")
 
 ;; Simple UI for a stdout Terminal
 ;; Runs indefinitely until you input a q (for quit)
