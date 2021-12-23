@@ -15,5 +15,15 @@ pom.xml.asc
 src/http/ENV.clj
 .calva/output-window/output.calva-repl
 MAMBU-DWH
-.lsp/sqlite.db
-.clj-kondo/*
+.lsp/**
+.clj-kondo/**
+src/.clj-kondo/.cache/2021.10.20-SNAPSHOT/lock
+src/.clj-kondo/.cache/2021.10.20-SNAPSHOT/clj/mambu.extensions.data_replication.datarep.transit.json
+src/.clj-kondo/.cache/2021.10.20-SNAPSHOT/clj/repl_start.transit.json
+src/.clj-kondo/.cache/2021.12.16/lock
+src/.clj-kondo/.cache/2021.12.16/clj/repl_start.transit.json
+src/.clj-kondo/.cache/2021.12.19/lock
+src/.clj-kondo/.cache/2021.12.19/clj/mambu.extensions.data_replication.datarep.transit.json
+src/.clj-kondo/.cache/2021.12.19/clj/repl_start.transit.json
+src/.lsp/.cache/data.mdb
+src/.lsp/.cache/lock.mdb
